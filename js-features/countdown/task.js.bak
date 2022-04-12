@@ -15,7 +15,6 @@ let sI = setInterval(() => {
     timer.textContent = `${hour}:${minute}:${second}`
     if (t === 0) {
         alert('Вы победили в конкурсе!');
-		location = "http://download.myshared.ru/mXfnC10fFPaf_l3lQTc-Ng/1649849363/1442879.ppt";
         clearInterval(sI);
     }    
 }, 1000)
