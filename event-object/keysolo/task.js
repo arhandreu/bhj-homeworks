@@ -17,28 +17,23 @@ class Game {
   }
 
   registerEvents() {
-    this.currentSymbol.setAttribute('tabindex', '0')
-    this.currentSymbol.focus()    
-    
-    function onKey (event) {      
-      if (event.key.toUpperCase() === this.textContent.toUpperCase()) {
-        this.success()       
+    let that = this;    
+    function onKey (event) {
+      console.log(this);      
+      if (event.key.toUpperCase() === that.currentSymbol.textContent.toUpperCase()) {
+        that.success()       
       }
       else {
-        this.fail()
+        that.fail()
       }
     }
 
-    Array.from(this.wordElement.querySelectorAll('span')).forEach(elem => {        
-      elem.addEventListener('keyup', onKey)
-    })      
+    document.addEventListener('keyup', onKey)
   }
 
   success() {
     this.currentSymbol.classList.add('symbol_correct');
     this.currentSymbol = this.currentSymbol.nextElementSibling;
-    this.currentSymbol.setAttribute('tabindex', '0')
-    this.currentSymbol.focus()
     if (this.currentSymbol !== null) {
       return;
     }
@@ -92,10 +87,8 @@ class Game {
       .join('');
     this.wordElement.innerHTML = html;
 
-    this.currentSymbol = this.wordElement.querySelector('.symbol_current');    
+    this.currentSymbol = this.wordElement.querySelector('.symbol_current');
   }
 }
 
 new Game(document.getElementById('game'))
-
-
