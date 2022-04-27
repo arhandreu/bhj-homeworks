@@ -89,3 +89,13 @@ body {
 .product-shadow {
   position: absolute;
 }
+
+.cart__product__remove {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: red;
+  font-size: 30px;
+  text-decoration: none;
+  cursor: pointer;
+}
