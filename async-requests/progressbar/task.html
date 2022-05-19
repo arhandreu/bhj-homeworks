@@ -5,9 +5,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Progressbar</title>    
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <title>Текстовый редактор</title>
     <link rel="stylesheet" href="task.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
 <body>
     <header class="header">
@@ -15,24 +15,15 @@
           <a href="https://netology.ru/" class="logo__link"></a>
         </div>
         <h1 class="header__title">
-            Домашнее задание к занятию 3.1 «Асинхронные запросы». Загрузка больших файлов.
+            Домашнее задание к занятию 3.2 «Хранение состояния на клиенте». Текстовый редактор.
         </h1>
     </header>
     <main class="content">
         <div class="card">
-            <progress value="0.0" id="progress"></progress>
-            <form action="https://netology-slow-rest.herokuapp.com/upload.php" id="form">
-                <input type="file" name="file" id="file" required>
-                <label for="file">                                  
-                    <span class="input__wrapper input__wrapper-button">Выберите файл</span>
-                    <span class="input__wrapper input__wrapper-desc">Имя файла...</span>                    
-                </label>                
-                <button id="send">Отправить</button>
-            </form>
-            <script src="main.js"></script>
-            <script src="task.js"></script>
-        </div>
-    </main>
-    
+            <textarea id="editor" cols="30" rows="10"></textarea>
+            <input id="clear" type="button" value="Очистить">
+        </div>        
+    </main>    
+    <script src="task.js"></script>
 </body>
 </html>

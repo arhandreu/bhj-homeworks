@@ -1,26 +1,18 @@
-const progress = document.getElementById( 'progress' )
-const form = document.forms.form
+const editor = document.getElementById('editor')
+const clear = document.getElementById('clear')
+
+if (localStorage.getItem('text')) {
+    editor.value = localStorage.getItem('text')
+}
 
 
-form.addEventListener('submit', (event) => {
+editor.addEventListener('input', (event) =>{
     event.preventDefault()
-    const xhr = new XMLHttpRequest()
-    
-    const formData = new FormData(form)
-    
-    xhr.upload.onprogress = function(event) {        
-        if (event.lengthComputable) {                       
-            let complete = Math.round((event.loaded / event.total) * 100) / 100            
-            progress.value = complete
-          }          
-    }
-    
-    // xhr.onloadend = (() => {
-    //     console.log('Завершено')
-    // })
-
-    xhr.open('POST', form.action)    
-    xhr.setRequestHeader('Content-Type', 'multipart/form-data');    
-    xhr.send(formData)    
+    localStorage.setItem('text', editor.value)
 })
 
+clear.addEventListener('click', (event) => {
+    event.preventDefault()
+    editor.value = ''
+    localStorage.clear()
+})
