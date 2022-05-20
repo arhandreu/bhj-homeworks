@@ -23,15 +23,14 @@ async function sendAutor(){
     
     if (json.success) {
         id = json.user_id
-        showWelcome(id)
-        form.reset()
+        showWelcome(id)        
         localStorage.setItem('id', id)
         
     }
-    else {        
-        form.reset()
+    else {       
         alert('Неверный логин/пароль')        
     }
+    form.reset()
 }
 
 localStorage.getItem('id') ? showWelcome(localStorage.getItem('id')) : null
