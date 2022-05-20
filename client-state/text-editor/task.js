@@ -1,10 +1,7 @@
 const editor = document.getElementById('editor')
 const clear = document.getElementById('clear')
 
-if (localStorage.getItem('text')) {
-    editor.value = localStorage.getItem('text')
-}
-
+editor.value = localStorage.getItem('text')
 
 editor.addEventListener('input', (event) =>{
     event.preventDefault()
